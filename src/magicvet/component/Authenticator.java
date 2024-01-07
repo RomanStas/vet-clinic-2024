@@ -4,7 +4,7 @@ import magicvet.Main;
 
 public class Authenticator {
 
-    private static String PASSWORD = "default";
+    private static final String PASSWORD = "default";
     public static boolean auth() {
         boolean accepted = false;
         for (int i = 0; i < 3; i++) {

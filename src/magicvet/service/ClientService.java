@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 
 public class ClientService {
 
-    private static String EMAIL_PATTERN = "^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
-    private static String NAME_PATTERN = "([A-Za-z]+(`[A-Za-z])?)-?([A-Za-z]+(`[A-Za-z])?)?";
+    private static final String EMAIL_PATTERN = "^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
+    private static final String NAME_PATTERN = "([A-Za-z]+(`[A-Za-z])?)-?([A-Za-z]+(`[A-Za-z])?)?";
     public Client registerNewClient() {
         Client client = null;
 
