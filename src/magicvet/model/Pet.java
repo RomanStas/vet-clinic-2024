@@ -2,7 +2,7 @@ package magicvet.model;
 
 import java.util.Objects;
 
-public class Pet {
+public abstract class Pet {
     private String type;
     private String sex;
     private String age;
@@ -12,12 +12,12 @@ public class Pet {
     @Override
     public String toString() {
         return "Pet {"
-                + "\n\ttype = " + type
+                + "type = " + type
                 + ", sex = " + sex
                 + ", age = " + age
                 + ", name = " + name
                 + ", ownerName = " + ownerName
-                + "\n}";
+                + "}";
     }
 
     @Override

@@ -23,13 +23,13 @@ public class Dog extends Pet {
     @Override
     public String toString() {
         return "Pet {"
-                + "\n\ttype = " + this.getType()
+                + "type = " + this.getType()
                 + ", sex = " + super.getSex()
                 + ", age = " + super.getAge()
                 + ", name = " + super.getName()
                 + ", ownerName = " + super.getOwnerName()
-                + ", size = " + size
-                + "\n}";
+                + ", size = " + this.getSize()
+                + "}";
     }
 
     public void setSize(String size) {
