@@ -1,11 +1,11 @@
-package magicvet;
+package magicvet.sandbox;
 
 import magicvet.comparator.DogSizeComparator;
 import magicvet.model.Dog;
 
 import java.util.Arrays;
 
-public class Sandbox {
+public class SandboxSize {
     public static void main(String[] args) {
         Dog[] dogs = {
                 new Dog(Dog.M),

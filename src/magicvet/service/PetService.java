@@ -32,7 +32,7 @@ public class PetService {
         pet.setSex(Main.SCANNER.nextLine());
 
         System.out.println("Age: ");
-        pet.setAge(Main.SCANNER.nextLine());
+        pet.setAge(Main.SCANNER.nextInt());
 
         System.out.println("Name: ");
         pet.setName(Main.SCANNER.nextLine());

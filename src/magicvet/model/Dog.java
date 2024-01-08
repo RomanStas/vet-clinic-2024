@@ -1,7 +1,5 @@
 package magicvet.model;
 
-import java.util.Objects;
-
 public class Dog extends Pet {
 
     public static final String XS = "XS";
@@ -16,6 +14,11 @@ public class Dog extends Pet {
     public Dog(String size) {
         this.size = size;
     }
+
+    public Dog(int age) {
+        this.setAge(age);
+    }
+
 
     public void setSize(String size) {
         this.size = size;
