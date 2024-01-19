@@ -6,13 +6,11 @@ import magicvet.model.Pet;
 import magicvet.service.ClientService;
 import magicvet.service.PetService;
 
-import java.util.Objects;
-
 public class ApplicationRunner {
 
-        private final ClientService clientService = new ClientService();
-        private final PetService petService = new PetService();
-        public void run() {
+    private final ClientService clientService = new ClientService();
+    private final PetService petService = new PetService();
+    public void run() {
         if (Authenticator.auth()) {
             Client client= clientService.registerNewClient();
             if (client != null) {
@@ -24,9 +22,9 @@ public class ApplicationRunner {
 
                     Pet pet = petService.registerNewPet();
                     if (pet != null) {
-                            client.setPet(pet);
-                            pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
-                            System.out.println("Pet has been added.");
+                        client.setPet(pet);
+                        pet.setOwnerName(client.getFirstName() + " " + client.getLastName());
+                        System.out.println(pet.getSex() + " " + pet.getType() + " " + pet.getName() + " has been added for " + pet.getOwnerName());
                     }
 
                     System.out.println(client);

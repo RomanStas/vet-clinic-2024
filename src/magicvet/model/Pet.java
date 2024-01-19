@@ -9,6 +9,19 @@ public abstract class Pet {
     private String name;
     private String ownerName;
 
+    private HealthState health;
+
+    public Pet() {
+    }
+
+    public Pet(HealthState health) {
+        this.health = health;
+    }
+
+    public HealthState getHealth() {
+        return health;
+    }
+
     @Override
     public String toString() {
         return "Pet {"
@@ -75,5 +88,24 @@ public abstract class Pet {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+
+    public enum HealthState {
+        EMERGENCY(1),
+        BAD(2),
+        NORMAL(3),
+        GOOD(4),
+        WELL(5),
+        VERY_WELL(6);
+        private final int value;
+
+        HealthState(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
     }
 }
