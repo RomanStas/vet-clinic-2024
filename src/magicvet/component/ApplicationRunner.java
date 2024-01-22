@@ -28,6 +28,11 @@ public class ApplicationRunner {
                     }
 
                     System.out.println(client);
+                } else {
+                    System.out.println("New client: " + client.getFirstName() + " "
+                            + client.getLastName() + " ("
+                            + client.getEmail() + ")"
+                            + ", clientRegistrationDate - " + client.getClientRegistrationDate());
                 }
             }
         }

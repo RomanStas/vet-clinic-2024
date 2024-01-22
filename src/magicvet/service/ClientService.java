@@ -2,7 +2,6 @@ package magicvet.service;
 
 import magicvet.Main;
 import magicvet.model.Client;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +9,8 @@ public class ClientService {
 
     private static final String EMAIL_PATTERN = "^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
     private static final String NAME_PATTERN = "([A-Za-z]+(`[A-Za-z])?)-?([A-Za-z]+(`[A-Za-z])?)?";
-    public Client registerNewClient() {
+
+        public Client registerNewClient() {
         Client client = null;
 
         System.out.println("Please provide client details.");
@@ -27,9 +27,6 @@ public class ClientService {
 
                 if (isNameValid(lastName)) {
                     client = buildClient(firstName, lastName, email);
-                    System.out.println("New client: " + client.getFirstName() + " "
-                            + client.getLastName()
-                            + " (" + client.getEmail() + ")");
                 } else {
                     System.out.println("Provided last name is invalid.");
                 }

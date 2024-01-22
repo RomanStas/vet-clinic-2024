@@ -4,6 +4,19 @@ public class Dog extends Pet {
 
     private Size size;
 
+    @Override
+    public String toString() {
+        return "{"
+                + "type = " + getType()
+                + ", sex = " + getSex()
+                + ", age = " + getAge()
+                + ", name = " + getName()
+                + ", size = " + getSize()
+                + ", ownerName = " + getOwnerName()
+                + ", petRegistrationDate - " + getPetRegistrationDate().format(formatter)
+                + "}";
+    }
+
     public Dog() {}
 
     public Dog(Size size) {
