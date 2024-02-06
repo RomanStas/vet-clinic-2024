@@ -2,6 +2,7 @@ package magicvet.service;
 
 import magicvet.Main;
 import magicvet.model.Client;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +11,29 @@ public class ClientService {
     private static final String EMAIL_PATTERN = "^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
     private static final String NAME_PATTERN = "([A-Za-z]+(`[A-Za-z])?)-?([A-Za-z]+(`[A-Za-z])?)?";
 
-        public Client registerNewClient() {
+    static Client buildClient(String firstName, String lastName, String email, String location) {
+        Client client = new Client();
+        client.setEmail(email);
+        client.setFirstName(firstName);
+        client.setLastName(lastName);
+        client.setLocation(Client.Location.valueOf(location));
+
+        return client;
+    }
+
+    private static boolean isEmailValid(String email) {
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    private static boolean isNameValid(String name) {
+        Pattern pattern = Pattern.compile(NAME_PATTERN);
+        Matcher matcher = pattern.matcher(name);
+        return matcher.matches();
+    }
+
+    public Client registerNewClient() {
         Client client = null;
 
         System.out.println("Please provide client details.");
@@ -26,7 +49,10 @@ public class ClientService {
                 String lastName = Main.SCANNER.nextLine();
 
                 if (isNameValid(lastName)) {
-                    client = buildClient(firstName, lastName, email);
+                    System.out.println("Location: ");
+                    String location = Main.SCANNER.nextLine();
+
+                    client = buildClient(firstName, lastName, email, location);
                 } else {
                     System.out.println("Provided last name is invalid.");
                 }
@@ -38,26 +64,5 @@ public class ClientService {
         }
 
         return client;
-    }
-
-    static Client buildClient(String firstName, String lastName, String email) {
-        Client client = new Client();
-        client.setEmail(email);
-        client.setFirstName(firstName);
-        client.setLastName(lastName);
-
-        return client;
-    }
-
-    private static boolean isEmailValid(String email) {
-        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-
-    private static boolean isNameValid(String name) {
-        Pattern pattern = Pattern.compile(NAME_PATTERN);
-        Matcher matcher = pattern.matcher(name);
-        return matcher.matches();
     }
 }
